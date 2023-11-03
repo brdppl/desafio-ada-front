@@ -1,8 +1,12 @@
 # Desafio Técnico - Frontend
 
+### Disclaimer
+
+Os pacotes **ace-builds**, **bootstrap** e **font-awesome** só foram instalados pois são necessários para o funcionamento do pacote **ngx-markdown-editor**, o restante do projeto não utiliza nenhum recurso desses pacotes.
+
 Este projeto foi desenvolvido utilzando o [Angular CLI](https://angular.io/cli) 16.1.1
 
-Caso não tenha instalado em sua máquina, execute o comando `npm install -g @angular/cli` no seu terminal
+Caso não tenha instalado em sua máquina, execute o comando `npm install -g @angular/cli` no seu terminal.
 
 Para rodar o projeto basta clonar o repositório e executar os seguintes comandos no terminal:
 
@@ -22,7 +26,7 @@ Em seguida, abra uma segunda instância no seu terminal e execute os seguintes c
 > yarn start
 ```
 
-Acesse através da URL `http://localhost:4200` no seu navagador
+Acesse através da URL `http://localhost:4200` no seu navagador.
 
 Para funcionar, o backend deve estar rodando na porta 5000.
 

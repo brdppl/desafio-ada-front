@@ -6,7 +6,14 @@
     </button>
   </mat-card-header>
   <mat-card-content class="card__content">
-    <p class="card__paragraph">{{ data.conteudo }}</p>
+    <md-editor name="Content"
+      [(ngModel)]="data.conteudo"
+      [height]="'180px'"
+      [mode]="'preview'"
+      required 
+      maxlength="500">
+      <slot custom-btns></slot>
+    </md-editor>
   </mat-card-content>
   <mat-card-actions class="card__actions">
     <button mat-icon-button (click)="moveColumn(data, direction.BACK)" [disabled]="data.lista === listPosition.TO_DO">
@@ -31,10 +38,15 @@
         </mat-form-field>
       </mat-card-header>
       <mat-card-content class="card__content">
-        <mat-form-field class="form-field-full-width" appearance="outline">
-          <mat-label>Conteúdo</mat-label>
-          <textarea matInput rows="6" formControlName="conteudo"></textarea>
-        </mat-form-field>
+        <md-editor name="Content"
+          formControlName="conteudo"
+          [height]="'180px'"
+          [mode]="'editor'"
+          [options]="editorOptions"
+          required 
+          maxlength="500">
+          <slot custom-btns></slot>
+        </md-editor>
       </mat-card-content>
       <mat-card-actions class="card__actions" *ngIf="data.id; else addActions">
         <button mat-icon-button (click)="data.isEditMode = false"  matTooltip="Cancelar" matTooltipPosition="above">

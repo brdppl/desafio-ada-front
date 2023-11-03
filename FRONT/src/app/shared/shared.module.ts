@@ -5,6 +5,7 @@ import { MaterialModule } from '../core/material.module';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LMarkdownEditorModule } from 'ngx-markdown-editor';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LMarkdownEditorModule
   ],
   exports: [
     HeaderComponent,

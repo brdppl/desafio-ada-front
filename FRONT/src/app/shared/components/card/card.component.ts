@@ -24,6 +24,12 @@ export class CardComponent implements OnInit {
   public direction = Direction;
   public listPosition = ListPosition;
 
+  public editorOptions = {
+    showPreviewPanel: false,
+    hideIcons: ['Bold', 'Italic', 'Heading', 'Reference', 'Link', 'Image', 'Ul', 'Ol', 'Code']
+  };
+  public editorMode = 'editor';
+
   constructor(
     private _snackBar: MatSnackBar
   ) {}
