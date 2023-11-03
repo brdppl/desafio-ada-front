@@ -4,6 +4,8 @@
 
 Os pacotes **ace-builds**, **bootstrap** e **font-awesome** só foram instalados pois são necessários para o funcionamento do pacote **ngx-markdown-editor**, o restante do projeto não utiliza nenhum recurso desses pacotes.
 
+### Instalação
+
 Este projeto foi desenvolvido utilzando o [Angular CLI](https://angular.io/cli) 16.1.1
 
 Caso não tenha instalado em sua máquina, execute o comando `npm install -g @angular/cli` no seu terminal.

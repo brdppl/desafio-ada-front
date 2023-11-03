@@ -1,18 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ICard } from 'src/app/shared/models/card.model';
-import { CardsService } from 'src/app/shared/services/cards.service';
+import { ICard } from '../../shared/models/card.model';
+import { CardsService } from '../../shared/services/cards.service';
 import { Subscription } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { LoginService } from 'src/app/shared/services/login.service';
-import { ListPosition } from 'src/app/shared/models/list-type.enum';
-import { CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-
-const addCardError = 'Erro ao adicionar a tarefa. Tente novamente.';
-const getCardsError = 'Erro ao carregar os itens.';
-const removeCardError = 'Erro ao excluir a tarefa. Tente novamente.';
-const editCardError = 'Erro ao editar a tarefa. Tente novamente.';
-const sessionExpired = 'A sessão expirou.';
+import { LoginService } from '../../shared/services/login.service';
+import { ListPosition } from '../../shared/models/list-type.enum';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { AlertMsg, ErrorMsg } from '../../shared/models/messages.enum';
 
 @Component({
   selector: 'app-home',
@@ -60,10 +55,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         },
         error: (err: HttpErrorResponse) => {
           if (err.status === 401) {
-            this.handleToast(sessionExpired);
+            this.handleToast(AlertMsg.SESSION_EXPIRED);
             this.loginService.logout();
           } else {
-            this.handleToast(addCardError);
+            this.handleToast(ErrorMsg.ADD_CARD_ERROR);
           }
         }
       })
@@ -78,10 +73,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         },
         error: (err: HttpErrorResponse) => {
           if (err.status === 401) {
-            this.handleToast(sessionExpired);
+            this.handleToast(AlertMsg.SESSION_EXPIRED);
             this.loginService.logout();
           } else {
-            this.handleToast(removeCardError);
+            this.handleToast(ErrorMsg.REMOVE_CARD_ERROR);
           }
         }
       })
@@ -96,10 +91,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         },
         error: (err: HttpErrorResponse) => {
           if (err.status === 401) {
-            this.handleToast(sessionExpired);
+            this.handleToast(AlertMsg.SESSION_EXPIRED);
             this.loginService.logout();
           } else {
-            this.handleToast(editCardError);
+            this.handleToast(ErrorMsg.EDIT_CARD_ERROR);
           }
         }
       })
@@ -133,10 +128,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         },
         error: (err: HttpErrorResponse) => {
           if (err.status === 401) {
-            this.handleToast(sessionExpired);
+            this.handleToast(AlertMsg.SESSION_EXPIRED);
             this.loginService.logout();
           } else {
-            this.handleToast(getCardsError);
+            this.handleToast(ErrorMsg.GET_CARDS_ERROR);
           }
         }
       })
