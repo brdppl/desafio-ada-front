@@ -10,6 +10,12 @@
   width: 100%;
 }
 
+// To not to leak out when the title is too long
 .mat-mdc-card-header-text {
   overflow: hidden;
+}
+
+// To fix icon position inside of button (bootstrap messed up)
+.mat-mdc-icon-button {
+  padding: 8px !important;
 }

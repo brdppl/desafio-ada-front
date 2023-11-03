@@ -1,27 +1,35 @@
-# FRONT
+# Desafio Técnico - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
+### Disclaimer
 
-## Development server
+Os pacotes **ace-builds**, **bootstrap** e **font-awesome** só foram instalados pois são necessários para o funcionamento do pacote **ngx-markdown-editor**, o restante do projeto não utiliza nenhum recurso desses pacotes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Este projeto foi desenvolvido utilzando o [Angular CLI](https://angular.io/cli) 16.1.1
 
-## Code scaffolding
+Caso não tenha instalado em sua máquina, execute o comando `npm install -g @angular/cli` no seu terminal.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para rodar o projeto basta clonar o repositório e executar os seguintes comandos no terminal:
 
-## Build
+```console
+> cd desafio-ada-front/BACK
+> npm install
+> npm run server
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Ela responderá na porta 5000.
 
-## Running unit tests
+Em seguida, abra uma segunda instância no seu terminal e execute os seguintes comandos:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```console
+> cd desafio-ada-front/FRONT
+> yarn install
+> yarn start
+```
 
-## Running end-to-end tests
+Acesse através da URL `http://localhost:4200` no seu navagador.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Para funcionar, o backend deve estar rodando na porta 5000.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Na tela de login acesse com as credenciais:
+login: `letscode`
+senha: `lets@123`
