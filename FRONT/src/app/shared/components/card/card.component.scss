@@ -1,0 +1,40 @@
+@use "@angular/material" as mat;
+
+.card {
+  width: 300px;
+  @include mat.elevation(3);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  &__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__content {
+    min-height: 150px;
+    max-height: 200px;
+    overflow: auto;
+  }
+
+  &__paragraph {
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--one-item {
+      justify-content: center;
+    }
+  }
+}

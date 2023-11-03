@@ -1,0 +1,95 @@
+<div class="board">
+  <div class="column">
+    <h1 class="column__title">To Do</h1>
+
+    <mat-divider class="column__divider"></mat-divider>
+
+    <div
+      class="column__body"
+      id="toDoList"
+      cdkDropList
+      #toDoList="cdkDropList"
+      [cdkDropListData]="toDoCards"
+      [cdkDropListConnectedTo]="[doingList, doneList]"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div *ngFor="let card of toDoCards">
+        <card
+          cdkDrag
+          [cdkDragDisabled]="card.isEditMode"
+          [data]="card"
+          (removeItem)="removeCard($event)"
+          (addItem)="addCard($event)"
+          (editItem)="editCard($event)"
+        >
+        </card>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <h1 class="column__title">Doing</h1>
+
+    <mat-divider class="column__divider"></mat-divider>
+
+    <div
+      class="column__body"
+      id="doingList"
+      cdkDropList
+      #doingList="cdkDropList"
+      [cdkDropListData]="doingCards"
+      [cdkDropListConnectedTo]="[toDoList, doneList]"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div *ngFor="let card of doingCards">
+        <card
+          cdkDrag
+          [cdkDragDisabled]="card.isEditMode"
+          [data]="card"
+          (removeItem)="removeCard($event)"
+          (addItem)="addCard($event)"
+          (editItem)="editCard($event)"
+        >
+        </card>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <h1 class="column__title">Done</h1>
+
+    <mat-divider class="column__divider"></mat-divider>
+
+    <div
+      class="column__body"
+      id="doneList"
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="doneCards"
+      [cdkDropListConnectedTo]="[toDoList, doingList]"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div *ngFor="let card of doneCards">
+        <card
+          cdkDrag
+          [cdkDragDisabled]="card.isEditMode"
+          [data]="card"
+          (removeItem)="removeCard($event)"
+          (addItem)="addCard($event)"
+          (editItem)="editCard($event)"
+        >
+        </card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button
+  mat-fab
+  color="primary"
+  class="btn--float"
+  matTooltip="Nova tarefa"
+  (click)="createCard()"
+>
+  <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,19 @@
+<div class="login">
+  <div class="container">
+    <h1 class="container__title">Faça seu login</h1>
+
+    <form [formGroup]="form" class="form">
+      <mat-form-field class="form__input" appearance="outline">
+        <mat-label>Login</mat-label>
+        <input matInput type="text" formControlName="login" />
+      </mat-form-field>
+      <mat-form-field class="form__input" appearance="outline">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" formControlName="senha" />
+      </mat-form-field>
+      <div class="d-flex justify-end">
+        <button mat-flat-button color="primary" class="form__btn" (click)="login()">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

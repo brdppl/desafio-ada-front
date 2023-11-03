@@ -1,0 +1,46 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$ada-primary: (
+  50: #a6f750,
+  100: #a6f750,
+  200: #a6f750,
+  contrast: (
+    50: #fff,
+    100: #fff,
+    200: #fff,
+  )
+);
+
+$ada-secondary: (
+  50: #0f1216,
+  100: #0f1216,
+  200: #0f1216,
+  contrast: (
+    50: #fff,
+    100: #fff,
+    200: #fff,
+  )
+);
+
+// $front-primary: mat.define-palette(mat.$indigo-palette);
+$front-primary: mat.define-palette($ada-primary, 100, 50, 200);
+// $front-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$front-accent: mat.define-palette($ada-secondary, 100, 50, 200);
+$front-warn: mat.define-palette(mat.$red-palette);
+$front-theme: mat.define-light-theme((
+  color: (
+    primary: $front-primary,
+    accent: $front-accent,
+    warn: $front-warn,
+  )
+));
+
+@include mat.all-component-themes($front-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Custom styles
+@import './app/styles/variables';
+@import './app/styles/helpers';

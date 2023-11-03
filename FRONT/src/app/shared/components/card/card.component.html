@@ -1,0 +1,56 @@
+<mat-card class="card" *ngIf="!data.isEditMode; else editMode">
+  <mat-card-header class="card__header">
+    <mat-card-title class="card__title">{{ data.titulo }}</mat-card-title>
+    <button mat-icon-button (click)="enableEditMode()" matTooltip="Editar" matTooltipPosition="above">
+      <mat-icon aria-hidden="false" aria-label="Edit icon" fontIcon="edit"></mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content class="card__content">
+    <p class="card__paragraph">{{ data.conteudo }}</p>
+  </mat-card-content>
+  <mat-card-actions class="card__actions">
+    <button mat-icon-button (click)="moveColumn(data, direction.BACK)" [disabled]="data.lista === listPosition.TO_DO">
+      <mat-icon aria-hidden="false" aria-label="Previous icon" fontIcon="arrow_back"></mat-icon>
+    </button>
+    <button mat-icon-button (click)="remove(data.id!)" matTooltip="Excluir" matTooltipPosition="above">
+      <mat-icon aria-hidden="false" aria-label="Delete icon" fontIcon="delete"></mat-icon>
+    </button>
+    <button mat-icon-button (click)="moveColumn(data, direction.FORWARD)" [disabled]="data.lista === listPosition.DONE">
+      <mat-icon aria-hidden="false" aria-label="Forward icon" fontIcon="arrow_forward"></mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #editMode>
+  <form [formGroup]="form">
+    <mat-card class="card">
+      <mat-card-header class="card__header">
+        <mat-form-field class="form-field-full-width" appearance="outline">
+          <mat-label>Título</mat-label>
+          <input matInput type="text" formControlName="titulo" />
+        </mat-form-field>
+      </mat-card-header>
+      <mat-card-content class="card__content">
+        <mat-form-field class="form-field-full-width" appearance="outline">
+          <mat-label>Conteúdo</mat-label>
+          <textarea matInput rows="6" formControlName="conteudo"></textarea>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions class="card__actions" *ngIf="data.id; else addActions">
+        <button mat-icon-button (click)="data.isEditMode = false"  matTooltip="Cancelar" matTooltipPosition="above">
+          <mat-icon aria-hidden="false" aria-label="Previous icon" fontIcon="cancel"></mat-icon>
+        </button>
+        <button mat-icon-button (click)="edit()" matTooltip="Salvar" matTooltipPosition="above">
+          <mat-icon aria-hidden="false" aria-label="Delete icon" fontIcon="check_circle"></mat-icon>
+        </button>
+      </mat-card-actions>
+      <ng-template #addActions>
+        <mat-card-actions class="card__actions--one-item">
+          <button mat-icon-button (click)="add()" matTooltip="Adicionar" matTooltipPosition="above">
+            <mat-icon aria-hidden="false" aria-label="Add icon" fontIcon="add_circle"></mat-icon>
+          </button>
+        </mat-card-actions>
+      </ng-template>
+    </mat-card>
+  </form>
+</ng-template>
