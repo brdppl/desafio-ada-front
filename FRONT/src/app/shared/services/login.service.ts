@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LoginService {
-  private readonly headers = new HttpHeaders({
+  private readonly HEADERS = new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   });
@@ -21,7 +21,7 @@ export class LoginService {
   ) { }
 
   public login(payload: ILogin): Observable<string> {
-    return this.http.post<string>(`${environment.baseUrl}/login`, payload, { headers: this.headers });
+    return this.http.post<string>(`${environment.baseUrl}/login`, payload, { headers: this.HEADERS });
   }
 
   public logout(): void {
