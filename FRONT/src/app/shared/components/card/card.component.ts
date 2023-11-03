@@ -4,10 +4,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Direction } from '../../models/direction.enum';
 import { ListPosition } from '../../models/list-type.enum';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AlertMsg } from '../../models/messages.enum';
 
 type DirectionType = 'back' | 'forward';
-
-const fillRequiredFields = 'Preencha os campos obrigatórios.';
 
 @Component({
   selector: 'card',
@@ -47,7 +46,7 @@ export class CardComponent implements OnInit {
       delete this.form.value.id;
       this.addItem.emit(this.form.value);
     } else {
-      this._snackBar.open(fillRequiredFields, '', {
+      this._snackBar.open(AlertMsg.FILL_REQUIRED_FIELDS, '', {
         duration: 5000
       })
     }

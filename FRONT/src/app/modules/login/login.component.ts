@@ -3,11 +3,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { LoginService } from 'src/app/shared/services/login.service';
-
-const invalidUser = 'Usuário ou senha inválidos.';
-const fillRequiredFields = 'Preencha os campos obrigatórios.';
+import { AlertMsg } from '../../shared/models/messages.enum';
+import { AuthService } from '../../shared/services/auth.service';
+import { LoginService } from '../../shared/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -39,19 +37,19 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.loginService.login(this.form.value).subscribe({
           next: (data) => {
             if (!data) {
-              this.handleToast(invalidUser);
+              this.handleToast(AlertMsg.INVALID_USER);
             } else {
               this.authService.authToken = data;
               this.router.navigateByUrl('/');
             }
           },
           error: () => {
-            this.handleToast(invalidUser);
+            this.handleToast(AlertMsg.INVALID_USER);
           }
         })
       );
     } else {
-      this.handleToast(fillRequiredFields);
+      this.handleToast(AlertMsg.FILL_REQUIRED_FIELDS);
     }
   }
 

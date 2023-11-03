@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ILogin } from '../models/login.model';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { Auth } from '../models/auth.enum';
 import { Router } from '@angular/router';
 
