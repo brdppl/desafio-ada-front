@@ -9,7 +9,7 @@ import { ICard } from '../models/card.model';
   providedIn: 'root'
 })
 export class CardsService {
-  private readonly headers = new HttpHeaders({
+  private readonly HEADERS = new HttpHeaders({
     'Authorization': `Bearer ${this.authService.authToken}`,
     'Accept': 'application/json',
     'Content-Type': 'application/json'
@@ -21,18 +21,18 @@ export class CardsService {
   ) { }
 
   public getCards(): Observable<ICard[]> {
-    return this.http.get<ICard[]>(`${environment.baseUrl}/cards`, { headers: this.headers });
+    return this.http.get<ICard[]>(`${environment.baseUrl}/cards`, { headers: this.HEADERS });
   }
 
   public addCard(payload: ICard): Observable<ICard> {
-    return this.http.post<ICard>(`${environment.baseUrl}/cards`, payload, { headers: this.headers });
+    return this.http.post<ICard>(`${environment.baseUrl}/cards`, payload, { headers: this.HEADERS });
   }
 
   public editCard(payload: ICard): Observable<ICard> {
-    return this.http.put<ICard>(`${environment.baseUrl}/cards/${payload.id}`, payload, { headers: this.headers });
+    return this.http.put<ICard>(`${environment.baseUrl}/cards/${payload.id}`, payload, { headers: this.HEADERS });
   }
 
   public removeCard(id: string): Observable<ICard[]> {
-    return this.http.delete<ICard[]>(`${environment.baseUrl}/cards/${id}`, { headers: this.headers });
+    return this.http.delete<ICard[]>(`${environment.baseUrl}/cards/${id}`, { headers: this.HEADERS });
   }
 }

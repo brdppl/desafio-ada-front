@@ -35,3 +35,28 @@ Para funcionar, o backend deve estar rodando na porta 5000.
 Na tela de login acesse com as credenciais:
 login: `letscode`
 senha: `lets@123`
+
+### Testes unitários
+
+Para rodar os testes unitários do frontend, basta abrir o terminal e executar os seguintes comandos:
+
+```console
+> cd desafio-ada-front/FRONT
+> yarn test
+```
+
+Ou
+
+```console
+> cd desafio-ada-front/FRONT
+> yarn test:coverage
+```
+
+### Lint
+
+Para rodar o lint no frontend, basta abrir o terminal e executar os seguintes comandos:
+
+```console
+> cd desafio-ada-front/FRONT
+> yarn lint
+```
