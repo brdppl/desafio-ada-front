@@ -1,8 +1,14 @@
 .header {
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 999;
 
   &__title {
     color: var(--ada-secondary);
+    font-weight: 500;
+    font-size: 1.3rem;
   }
 }

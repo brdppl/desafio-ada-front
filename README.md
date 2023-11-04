@@ -15,6 +15,8 @@ Para rodar o projeto basta clonar o repositório e executar os seguintes comando
 > docker-compose up -d
 ```
 
+Acesse através da URL `http://localhost:4200` no seu navagador.
+
 ### Instalação sem Docker
 
 Este projeto foi desenvolvido utilzando o [Angular CLI](https://angular.io/cli) 16.1.1

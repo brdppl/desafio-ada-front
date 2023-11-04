@@ -1,6 +1,6 @@
 <div class="board">
   <div class="column">
-    <h1 class="column__title">To Do</h1>
+    <h3 class="column__title">To Do</h3>
 
     <mat-divider class="column__divider"></mat-divider>
 
@@ -28,7 +28,7 @@
   </div>
   
   <div class="column">
-    <h1 class="column__title">Doing</h1>
+    <h3 class="column__title">Doing</h3>
 
     <mat-divider class="column__divider"></mat-divider>
 
@@ -56,7 +56,7 @@
   </div>
   
   <div class="column">
-    <h1 class="column__title">Done</h1>
+    <h3 class="column__title">Done</h3>
 
     <mat-divider class="column__divider"></mat-divider>
 
@@ -84,12 +84,16 @@
   </div>
 </div>
 
+<ng-container *ngIf="!cards.length && !tempCards.length">
+  <h3 class="no-items">Sem itens por enquanto</h3>
+</ng-container>
+
 <button
   mat-fab
   color="primary"
   class="btn--float"
-  matTooltip="Nova tarefa"
+  [matTooltip]="tempCards.length > 0 ? 'Cancelar' : 'Nova tarefa'"
   (click)="createCard()"
 >
-  <mat-icon>add</mat-icon>
+  <mat-icon>{{ tempCards.length ? 'close': 'add' }}</mat-icon>
 </button>
