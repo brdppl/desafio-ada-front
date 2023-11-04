@@ -4,7 +4,18 @@
 
 Os pacotes **ace-builds**, **bootstrap** e **font-awesome** só foram instalados pois são necessários para o funcionamento do pacote **ngx-markdown-editor**, o restante do projeto não utiliza nenhum recurso desses pacotes.
 
-### Instalação
+### Instalação com Docker
+
+Certifique-se que você tem o [Docker](https://www.docker.com/get-started/) instalado na sua máquina.
+
+Para rodar o projeto basta clonar o repositório e executar os seguintes comandos no terminal:
+
+```console
+> cd desafio-ada-front
+> docker-compose up -d
+```
+
+### Instalação sem Docker
 
 Este projeto foi desenvolvido utilzando o [Angular CLI](https://angular.io/cli) 16.1.1
 

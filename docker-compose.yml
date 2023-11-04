@@ -1,0 +1,23 @@
+version: '4'
+
+services:
+  backend:
+    build: ./BACK/
+    restart: always
+    ports:
+      - "5000:5000"
+    networks:
+      - dockercompose
+
+  frontend:
+    depends_on:
+      - backend
+    build: ./FRONT/
+    restart: always
+    ports:
+      - "4200:4200"
+    networks:
+      - dockercompose
+
+networks:
+  dockercompose:
