@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public toDoCards: ICard[] = [];
   public doingCards: ICard[] = [];
   public doneCards: ICard[] = [];
+  public tempCards: ICard[] = [];
   
   private subscriptions = new Subscription();
 
@@ -38,13 +39,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public createCard(): void {
-    const newCard: ICard = {
-      titulo: '',
-      conteudo: '',
-      lista: ListPosition.TO_DO,
-      isEditMode: true
-    };
-    this.toDoCards.push(newCard);
+    if (!this.tempCards.length) {
+      const newCard: ICard = {
+        titulo: '',
+        conteudo: '',
+        lista: ListPosition.TO_DO,
+        isEditMode: true
+      };
+      this.toDoCards.push(newCard);
+      this.tempCards.push(newCard);
+    } else {
+      this.tempCards = [];
+      this.toDoCards = this.toDoCards.filter(card => card.id);
+    }
   }
 
   public addCard(cardFormValue: ICard): void {
@@ -125,6 +132,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         next: (data) => {
           this.cards = data;
           this.filterCards(data);
+          this.tempCards = [];
         },
         error: (err: HttpErrorResponse) => {
           if (err.status === 401) {

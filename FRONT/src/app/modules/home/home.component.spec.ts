@@ -43,7 +43,30 @@ describe('HomeComponent', () => {
   });
 
   describe('createCard', () => {
+    beforeEach(() => {
+      component.toDoCards = [{
+        id: 'abc-123',
+        titulo: 'abc',
+        conteudo: 'def',
+        lista: 'ToDo',
+        isEditMode: true
+      }];
+    });
+
     it('should create a new card', () => {
+      component.createCard();
+
+      expect(component.toDoCards).toHaveLength(2);
+    });
+
+    it('should cancel a new card', () => {
+      component.tempCards = [{
+        titulo: '',
+        conteudo: '',
+        lista: 'ToDo',
+        isEditMode: true
+      }];
+
       component.createCard();
 
       expect(component.toDoCards).toHaveLength(1);
